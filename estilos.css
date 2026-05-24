@@ -1,0 +1,95 @@
+ body{
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+    margin: 0;
+    padding-top: 80px;
+    background-color: #f4f4f9;
+ }
+ nav{
+    position: fixed;
+    top:10px;
+    right: 10px;
+ }
+ section{
+   min-height: 100vh;
+   padding: 60px 20px;
+   text-align: center;
+   box-sizing: border-box;
+ }
+ #Inicio{background-color: #fff3e0;}
+ #Viajes{background-color: #ffffff;}
+ #Estadias{background-color: #ffe0b2;}
+ #Traslados{background-color: #d7ccc8;}
+ .precio{
+   display: block;
+   font-size: 1.3rem;
+   color: #d35400;
+   font-weight: bold;
+   margin: 12px 0;
+ }
+
+ .tarjeta-viaje button{
+   background-color: #e67e22;
+   color: white;
+   border: none;
+   padding: 12px;
+   width: 100%;
+   border-radius: 5px;
+   cursor: pointer;
+   font-weight: bold;
+   font-size: 1rem;
+ }
+ .tarjeta-viaje button:hover{
+   background-color: #6e2c00;
+ }
+ .img-logo{
+   width: 70px;
+   border-radius: 50%;
+ }
+ .logo{
+   position: absolute;
+   top: 10px;
+   left: 10px;
+ }
+
+.Menu ul{
+   display: flex;
+   list-style: none;
+   gap: 40px;
+   padding: 0;
+   margin: 0;
+}
+.Menu ul li a{
+   font-size: 1.2rem;
+   text-decoration: none;
+   color: #6e2c00;
+   font-weight: bold;
+}
+header{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 10px 20px;
+   background-color: #ffffff;
+}
+.Menu{
+   display: flex;
+   align-items: center;
+   gap: 50px;
+}
+#busqueda{
+   padding: 12px;
+   font-size: 1rem;
+   width: 500px;
+   border: 1px solid #d35400;
+   border-radius: 5px;
+}
+.Menu button{
+   padding: 10px 20px;
+   font-size: 1rem;
+   background-color: #e67e22;
+   color: white;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+}

@@ -5,9 +5,62 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>fronted</title>
+    <link rel="stylesheet" href="estilos.css">
   </head>
   <body>
+    <header class="Encabezado">
     <div id="app"></div>
+    <div class="logo">
+      <a href="#inicio">
+      <img src="ArgenVia.png" alt="Logo de ArgenVia" class="img-logo">
+    </a>
+    </div>
+    <nav class="Menu">
+      <input type="text"
+      id="busqueda"
+      placeholder="Buscar seccion...">
+      <button onclick="buscar()">Buscar</button>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#viajes">Viajes</a></li>
+        <li><a href="#estadias">Estadias</a></li>
+        <li><a href="#traslados">Traslados</a></li>
+      </ul>
+    </nav>  
+    </header>
+    <main>
+      <section id="Inicio">
+        <h1>Bienvenidos a ArgenVia</h1>
+        <p>Acá vas a encontrar tu próximo destino.</p>
+      </section>
+      <section id="Viajes">
+        <h2>Nuestros paquetes turísticos</h2>
+        <div class="contenedor-viajes">
+          <div class="tarjeta-viaje"><img src="https://via.placeholder.com/300x200" alt="Viaje a Bariloche">
+            <h3>Viaje a Bariloche</h3>
+            <p>7 días y 6 noches. Aéreos y hotel.</p>
+            <span class="precio">$450.000</span>
+            <button onclick="agregarAlCarrito('Bariloche', 450000)">Agregar al carrito</button>
+          </div>
+          <div class="tarjeta-viaje"> 
+            <img src="https://via.placeholder.com./300x200" alt="Iguazú">
+            <h3>Cataratas del Iguazú</h3>
+            <p>5 días y 4 noches con excursiones.</p>
+            <span class="precio">$320,000</span>
+            <button onclick="agregarAlCarrito('Iguazú', 320000)">Agregar al carrito</button>
+          </div>
+        </div>
+      </section>
+      <section id="Estadias">
+        <h2>Estadías</h2>
+        <p>Próximamente hoteles...</p>
+      </section>
+      <section id="Traslados">
+        <h2>Traslados</h2>
+        <p>Próximamente traslados disponibles...</p>
+      </section>
+    </main>
+    <script src="script.js"></script>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
