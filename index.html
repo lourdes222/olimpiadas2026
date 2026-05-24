@@ -28,6 +28,17 @@
       </ul>
     </nav>  
     </header>
+    <button onclick="abrirLogin()">Ingresar</button>
+    <div id="modal-login">
+      <div class="login-contenido">
+        <h2>Iniciar sesión</h2>
+        <input type="text" placeholder="Usuario">
+        <input type="password" placeholder="Contraseña">
+        <button onclick="entrar()">Entrar</button>
+        <button onclick="cerrarLogin()">Cerrar</button>
+      </div>
+    </div>
+
     <main>
       <section id="Inicio">
         <h1>Bienvenidos a ArgenVia</h1>
@@ -36,14 +47,14 @@
       <section id="Viajes">
         <h2>Nuestros paquetes turísticos</h2>
         <div class="contenedor-viajes">
-          <div class="tarjeta-viaje"><img src="https://via.placeholder.com/300x200" alt="Viaje a Bariloche">
+          <div class="tarjeta-viaje"><img src="bariloche.jpg" alt="Viaje a Bariloche">
             <h3>Viaje a Bariloche</h3>
             <p>7 días y 6 noches. Aéreos y hotel.</p>
             <span class="precio">$450.000</span>
             <button onclick="agregarAlCarrito('Bariloche', 450000)">Agregar al carrito</button>
           </div>
           <div class="tarjeta-viaje"> 
-            <img src="https://via.placeholder.com./300x200" alt="Iguazú">
+            <img src="iguazu.jpg" alt="Viaje a las Cataratas del Iguazú">
             <h3>Cataratas del Iguazú</h3>
             <p>5 días y 4 noches con excursiones.</p>
             <span class="precio">$320,000</span>
@@ -61,6 +72,5 @@
       </section>
     </main>
     <script src="script.js"></script>
-    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
