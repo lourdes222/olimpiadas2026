@@ -93,3 +93,82 @@ header{
    border-radius: 5px;
    cursor: pointer;
 }
+.contenedor-viajes{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.tarjeta-viaje{
+   border: 1px solid #ccc;
+   padding: 15px;
+   width: 300px;
+   text-align: center;
+}
+button:hover{
+   background-color: #d35400;
+   transition: 0.3s;
+}
+.contenedor-viajes img{
+   width: 200px !important;
+   height: auto !important;
+}
+#modal-login{
+   display: none;
+   position: fixed;
+   top: 0; left: 0; width: 100%; height: 100%;
+   background: rgba(0, 0, 0, 0.5);
+}
+.login-contenido{
+   background: white;
+   width: 300px;
+   margin: 100px auto;
+   padding: 20px;
+   border-radius: 15px;
+   text-align: center;
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.login-contenido input{
+   display: block;
+   width: 90%;
+   margin: 10px auto;
+   padding: 10px;
+   border: 1px solid #ccc;
+}
+.login-contenido button{
+   padding: 10px 20px;
+   margin: 5px;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   background-color: #f39c12;
+   color: white;
+}
+.btn-ingresar{
+   background-color: #f39c12;
+   color: white;
+   border: none;
+   padding: 10px 20px;
+   border-radius: 5px;
+   font-weight: bold;
+}
+#modal-registro{
+   display: none;
+   position: fixed;
+   top: 0; left: 0; width: 100%; height: 100%;
+   z-index: 1000; 
+}
+.texto-registro{
+   margin-top: 15px;
+   font-size: 14px;
+   color: #333;
+}
+.texto-registro a{
+   color: #f39c12;
+   text-decoration: underline;
+   font-weight: bold;
+   cursor: pointer;
+}
+.texto-registro a:hover{
+   color: #d35400;
+}

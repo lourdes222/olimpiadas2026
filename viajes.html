@@ -1,0 +1,102 @@
+
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Viajes - ArgenVia</title>
+
+  <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+  <header class="Encabezado">
+
+    <div class="logo">
+      <img src="ArgenVia.png" alt="Logo de ArgenVia" class="img-logo">
+    </div>
+
+    <nav class="Menu">
+
+      <input
+        type="text"
+        id="busqueda"
+        placeholder="Buscar sección..."
+      >
+
+      <button onclick="buscar()">
+        Buscar
+      </button>
+
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="viajes.html">Viajes</a></li>
+        <li><a href="estadias.html">Estadías</a></li>
+        <li><a href="traslados.html">Traslados</a></li>
+      </ul>
+
+    </nav>
+
+  </header>
+
+  <main>
+
+    <section>
+
+      <h2>Nuestros paquetes turísticos</h2>
+
+      <div class="contenedor-viajes">
+
+        <div class="tarjeta-viaje">
+
+          <img src="bariloche.jpg" alt="Bariloche">
+
+          <h3>Viaje a Bariloche</h3>
+
+          <p>
+            7 días y 6 noches. Aéreos y hotel.
+          </p>
+
+          <span class="precio">
+            $450.000
+          </span>
+
+          <button onclick="agregarAlCarrito('Bariloche', 450000)">
+            Agregar al carrito
+          </button>
+
+        </div>
+
+        <div class="tarjeta-viaje">
+
+          <img src="iguazu.jpg" alt="Iguazú">
+
+          <h3>Cataratas del Iguazú</h3>
+
+          <p>
+            5 días y 4 noches con excursiones.
+          </p>
+
+          <span class="precio">
+            $320.000
+          </span>
+
+          <button onclick="agregarAlCarrito('Iguazú', 320000)">
+            Agregar al carrito
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
