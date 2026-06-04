@@ -57,3 +57,64 @@ function entrar(){
 
     cerrarLogin();
 }
+
+let carrito = 
+JSON.parse(localStorage.getItem("carrito")) || [];
+
+function agregarAlCarrito(nombre, precio){
+
+carrito.push({
+    nombre: nombre, 
+    precio: precio
+});
+
+localStorage.setItem(
+    "carrito",
+    JSON.stringify(carrito)
+);
+
+alret(nombre + " agregado al carrito");
+}
+function mostrarCarrito(){
+    
+    let carrito = 
+    JSON.parse(localStorage.getItem("carrito")) || [];
+    
+    let contenido = 
+
+    docutment.getElementById("lista-carrito");
+
+    let total = 0;
+    
+    contenedor.innerHTML = "";
+
+    carrito.forEach((producto, indice) => {
+        
+        contenedor.innerHTML += `
+        <p>${producto.nombre} - $${producto.precio}
+        <button onclick="eliminarDelCarrito(${indice})">Eliminar</button>
+        </p> 
+        `;
+
+        total += producto.precio;
+    });
+
+    document.getElementById("total").innerText = "Total: $" + total;
+}
+function eliminarProducto(indice){
+    let carrito = 
+    JSON.parse(localStorage.getItem("carrito")) || [];
+
+    carrito.splice(indice, 1);
+
+    localStorage.setItem(
+        "carrito",
+        JSON.stringify(carrito)
+    );
+    
+    mostrarCarrito();
+}
+function vaciarCarrito(){
+    localStorage.removeItem("carrito");
+    mostrarCarrito();
+}
