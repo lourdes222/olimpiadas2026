@@ -1,24 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito</title>
+    <title>Carrito - ArgenVia</title>
+
+```
+<link rel="stylesheet" href="estilos.css">
+```
+
 </head>
+
 <body>
-    
-    <h1>Mi carrito</h1>
 
-    <div id="lista-carrito"></div>
+```
+<header class="Encabezado">
 
-    <h2 id="total"></h2>
+    <div class="logo">
+        <img src="ArgenVia.png" alt="Logo" class="img-logo">
+    </div>
 
-    <script src="script.js"></script>
+    <nav class="Menu">
 
-    <script>
-        mostrarCarrito();
-    </script>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="viajes.html">Viajes</a></li>
+            <li><a href="estadias.html">Estadías</a></li>
+            <li><a href="traslados.html">Traslados</a></li>
+            <li><a href="carrito.html">🛒</a></li>
+        
+            <li id="adminLink" hidden>
+        <a href="admin.html">
+             Panel de Admin
+        </a>
+    </li>
+        
+        </ul>
 
-    <button onclick="vaciarCarrito()">Vaciar carrito</button>
+    </nav>
+
+</header>
+
+<main>
+
+    <section>
+
+        <h1>Mi Carrito</h1>
+
+        <div class="contenedor-carrito">
+
+            <div class="productos-carrito">
+
+                <h2>Productos seleccionados</h2>
+
+                <div id="lista-carrito"></div>
+
+            </div>
+
+            <div class="resumen-carrito">
+
+                <h2>Resumen</h2>
+
+                <h3 id="total">
+                    Total: $0
+                </h3>
+
+                <button onclick="vaciarCarrito()">
+                    Vaciar carrito
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<script src="script.js"></script>
+
+<script>
+    mostrarCarrito();
+</script>
+```
+
 </body>
+
 </html>

@@ -192,3 +192,39 @@ button:hover{
 .texto-registro a:hover{
    color: #d35400;
 }
+.contenedor-carrito{
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.productos-carrito{
+    width: 65%;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.resumen-carrito{
+    width: 25%;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+    position: sticky;
+    top: 120px;
+}
+
+#lista-carrito p{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px solid #ddd;
+
+    padding: 10px 0;
+}
