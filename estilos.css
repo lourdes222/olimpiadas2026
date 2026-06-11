@@ -172,3 +172,26 @@ button:hover{
 .texto-registro a:hover{
    color: #d35400;
 }
+@import url('htpps://fonts-googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+*{
+   margin:0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Poppins', sans-serif;
+}
+body{
+   background-color: #121212;
+   color: #ffffff;
+   line-height: 1.6;
+}
+.Encabezado{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 15px 5%;
+   background-color: #1a1a1a;
+   border-bottom: 2px solid #ff7a00;
+   position: sticky;
+   top: 0;
+   z-index: 1000;
+}
