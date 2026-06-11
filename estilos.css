@@ -2,13 +2,8 @@
     font-family: Arial, sans-serif;
     scroll-behavior: smooth;
     margin: 0;
-    padding-top: 80px;
+    padding-top: 100px;
     background-color: #f4f4f9;
- }
- nav{
-    position: fixed;
-    top:10px;
-    right: 10px;
  }
  section{
    min-height: 100vh;
@@ -46,31 +41,56 @@
    width: 70px;
    border-radius: 50%;
  }
- .logo{
-   position: absolute;
-   top: 10px;
-   left: 10px;
- }
-
 .Menu ul{
    display: flex;
    list-style: none;
-   gap: 40px;
+   gap: 15px;
    padding: 0;
    margin: 0;
 }
 .Menu ul li a{
-   font-size: 1.2rem;
+   font-size: 1rem;
    text-decoration: none;
    color: #6e2c00;
    font-weight: bold;
 }
 header{
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+
    display: flex;
-   justify-content: space-between;
    align-items: center;
+   justify-content: space-between;
+
    padding: 10px 20px;
-   background-color: #ffffff;
+
+   background-color: white;
+
+   z-index: 1000;
+
+   box-sizing: border-box;
+}
+
+.logo{
+   display: flex;
+   align-items: center;
+}
+
+.Menu{
+   display: flex;
+   align-items: center;
+   gap: 20px;
+}
+
+.Menu ul{
+   display: flex;
+   list-style: none;
+   gap: 25px;
+
+   margin: 0;
+   padding: 0;
 }
 .Menu{
    display: flex;
@@ -80,13 +100,13 @@ header{
 #busqueda{
    padding: 12px;
    font-size: 1rem;
-   width: 500px;
+   width: 250px;
    border: 1px solid #d35400;
    border-radius: 5px;
 }
 .Menu button{
-   padding: 10px 20px;
-   font-size: 1rem;
+   padding: 8px 12px;
+   font-size: 0.9rem;
    background-color: #e67e22;
    color: white;
    border: none;
@@ -171,27 +191,4 @@ button:hover{
 }
 .texto-registro a:hover{
    color: #d35400;
-}
-@import url('htpps://fonts-googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-*{
-   margin:0;
-   padding: 0;
-   box-sizing: border-box;
-   font-family: 'Poppins', sans-serif;
-}
-body{
-   background-color: #121212;
-   color: #ffffff;
-   line-height: 1.6;
-}
-.Encabezado{
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   padding: 15px 5%;
-   background-color: #1a1a1a;
-   border-bottom: 2px solid #ff7a00;
-   position: sticky;
-   top: 0;
-   z-index: 1000;
 }

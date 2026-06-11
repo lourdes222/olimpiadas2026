@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html lang="es">
 
 <head>
@@ -14,99 +15,104 @@
 
   <header class="Encabezado">
 
-    <div class="logo">
-      <img src="ArgenVia.png" alt="Logo de ArgenVia" class="img-logo">
-    </div>
+```
+<div class="logo">
+  <img src="ArgenVia.png" alt="Logo de ArgenVia" class="img-logo">
+</div>
 
-    <nav class="Menu">
+<nav class="Menu">
 
-      <input
-        type="text"
-        id="busqueda"
-        placeholder="Buscar sección..."
-      >
+  <input
+    type="text"
+    id="busqueda"
+    placeholder="Buscar sección..."
+  >
 
-      <button onclick="buscar()">
-        Buscar
-      </button>
+  <button onclick="buscar()">
+    Buscar
+  </button>
 
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="viajes.html">Viajes</a></li>
-        <li><a href="estadias.html">Estadías</a></li>
-        <li><a href="traslados.html">Traslados</a></li>
-      </ul>
+  <ul>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="viajes.html">Viajes</a></li>
+    <li><a href="estadias.html">Estadías</a></li>
+    <li><a href="traslados.html">Traslados</a></li>
+  </ul>
 
-    </nav>
+</nav>
+```
 
   </header>
 
   <main>
 
-    <section>
+```
+<section>
 
-      <h2>Nuestros paquetes turísticos</h2>
+  <h2>Nuestros paquetes turísticos</h2>
 
-      <div class="contenedor-viajes">
+  <div class="contenedor-viajes">
 
-        <div class="tarjeta-viaje">
+    <div class="tarjeta-viaje">
 
-          <img src="bariloche.jpg" alt="Bariloche">
+      <img src="bariloche.jpg" alt="Bariloche">
 
-          <h3>Viaje a Bariloche</h3>
+      <h3>Viaje a Bariloche</h3>
 
-          <p>
-            7 días y 6 noches. Aéreos y hotel.
-          </p>
+      <p>
+        7 días y 6 noches. Aéreos y hotel.
+      </p>
 
-          <span class="precio">
-            $450.000
-          </span>
+      <span class="precio">
+        $450.000
+      </span>
 
-          <button onclick="agregarAlCarrito('Bariloche', 450000)">
-            Agregar al carrito
-          </button>
+      <button onclick="agregarAlCarrito('Bariloche', 450000)">
+        Agregar al carrito
+      </button>
 
-        </div>
+    </div>
 
-        <div class="tarjeta-viaje">
+    <div class="tarjeta-viaje">
 
-          <img src="iguazu.jpg" alt="Iguazú">
+      <img src="iguazu.jpg" alt="Iguazú">
 
-          <h3>Cataratas del Iguazú</h3>
+      <h3>Cataratas del Iguazú</h3>
 
-          <p>
-            5 días y 4 noches con excursiones.
-          </p>
+      <p>
+        5 días y 4 noches con excursiones.
+      </p>
 
-          <span class="precio">
-            $320.000
-          </span>
+      <span class="precio">
+        $320.000
+      </span>
 
-          <button onclick="agregarAlCarrito('Iguazú', 320000)">
-            Agregar al carrito
-          </button>
+      <button onclick="agregarAlCarrito('Iguazú', 320000)">
+        Agregar al carrito
+      </button>
 
-        </div>
+    </div>
 
-        <div class"Producto">
+  </div>
 
-          <h3>Viaje a Bariloche</h3>
+  <h2>Productos cargados por el administrador</h2>
 
-          <p>$250000</p>
+  <div
+    id="productosAdmin"
+    class="contenedor-viajes">
+  </div>
 
-          <button onclick="agregarAlCarrito('Bariloche', 250000)">
-            Agregar al carrito
-          </button>
-        </div>
-
-      </div>
-
-    </section>
+</section>
+```
 
   </main>
 
   <script src="script.js"></script>
 
+  <script>
+    mostrarProductosViajes();
+  </script>
+
 </body>
+
 </html>
