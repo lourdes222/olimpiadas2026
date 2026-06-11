@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>
+        Panel Administrador
+    </title>
+
+    <link rel="stylesheet"
+          href="estilos.css">
+
+</head>
+
+<body>
+
+    <h1>
+        Panel del Jefe de Ventas
+    </h1>
+
+    <button>
+        Agregar Producto
+    </button>
+
+    <button>
+        Ver Pedidos
+    </button>
+
+    <button>
+        Gestionar Ventas
+    </button>
+
+    <button onclick="cerrarSesion()">
+        Cerrar Sesión
+    </button>
+
+    <h1>Panel del Jefe de Ventas</h1>
+
+<input
+    type="text"
+    id="nombreProducto"
+    placeholder="Nombre del producto">
+
+<input
+    type="number"
+    id="precioProducto"
+    placeholder="Precio">
+
+<button onclick="agregarProducto()">
+    Agregar Producto
+</button>
+
+<hr>
+
+<h2>Productos cargados</h2>
+
+<div id="listaProductos"></div>
+
+<button onclick="cerrarSesion()">
+    Cerrar sesión
+</button>
+
+<script src="script.js"></script>
+
+<script>
+    mostrarProductos();
+</script>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

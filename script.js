@@ -53,9 +53,34 @@ function cerrarLogin(){
 
 function entrar(){
 
-    alert("Iniciando sesión...");
+    let usuario =
+        document.getElementById("usuario").value;
 
-    cerrarLogin();
+    let password =
+        document.getElementById("password").value;
+
+    if(
+        usuario === "admin" &&
+        password === "1234"
+    ){
+
+        localStorage.setItem(
+            "rol",
+            "admin"
+        );
+
+        alert("Bienvenido administrador");
+
+        window.location.href =
+            "admin.html";
+
+    }else{
+
+        alert(
+            "Usuario o contraseña incorrectos"
+        );
+
+    }
 }
 
 let carrito = 
@@ -117,4 +142,86 @@ function eliminarProducto(indice){
 function vaciarCarrito(){
     localStorage.removeItem("carrito");
     mostrarCarrito();
+}
+function cerrarSesion(){
+
+    localStorage.removeItem("rol");
+
+    window.location.href =
+        "index.html";
+}
+if(
+    window.location.pathname
+    .includes("admin.html")
+){
+
+    if(
+        localStorage.getItem("rol")
+        !== "admin"
+    ){
+
+        window.location.href =
+            "index.html";
+    }
+}
+function agregarProducto(){
+
+    let nombre =
+        document.getElementById(
+            "nombreProducto"
+        ).value;
+
+    let precio =
+        document.getElementById(
+            "precioProducto"
+        ).value;
+
+    let productos =
+        JSON.parse(
+            localStorage.getItem(
+                "productos"
+            )
+        ) || [];
+
+    productos.push({
+        nombre,
+        precio
+    });
+
+    localStorage.setItem(
+        "productos",
+        JSON.stringify(productos)
+    );
+
+    mostrarProductos();
+
+    alert("Producto agregado");
+}
+function mostrarProductos(){
+
+    let productos =
+        JSON.parse(
+            localStorage.getItem(
+                "productos"
+            )
+        ) || [];
+
+    let contenedor =
+        document.getElementById(
+            "listaProductos"
+        );
+
+    if(!contenedor) return;
+
+    contenedor.innerHTML = "";
+
+    productos.forEach((p)=>{
+
+        contenedor.innerHTML += `
+            <p>
+                ${p.nombre}
+                - $${p.precio}
+            </p>
+        `;
+    });
 }
