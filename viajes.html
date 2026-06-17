@@ -38,8 +38,11 @@
     <li><a href="estadias.html">Estadías</a></li>
     <li><a href="traslados.html">Traslados</a></li>
   
-    <li><a href="registro.html"><img src="registro.png" alt="Registro" class="icono-menu"></a>
-  </li>
+    <li>
+    <a id="linkPerfil" href="registro.html">
+        <img src="registro.png" alt="Perfil" class="icono-menu">
+    </a>
+</li>
     <li>
         <a href="carrito.html">
                 🛒
@@ -62,69 +65,22 @@
 ```
 <section>
 
-  <h2>Nuestros paquetes turísticos</h2>
+    <h2>Nuestros paquetes turísticos</h2>
 
-  <div class="contenedor-viajes">
-
-    <div class="tarjeta-viaje">
-
-      <img src="bariloche.jpg" alt="Bariloche">
-
-      <h3>Viaje a Bariloche</h3>
-
-      <p>
-        7 días y 6 noches. Aéreos y hotel.
-      </p>
-
-      <span class="precio">
-        $450.000
-      </span>
-
-      <button onclick="agregarAlCarrito('Bariloche', 450000)">
-        Agregar al carrito
-      </button>
-
+    <div
+        id="productosAdmin"
+        class="contenedor-viajes">
     </div>
-
-    <div class="tarjeta-viaje">
-
-      <img src="iguazu.jpg" alt="Iguazú">
-
-      <h3>Cataratas del Iguazú</h3>
-
-      <p>
-        5 días y 4 noches con excursiones.
-      </p>
-
-      <span class="precio">
-        $320.000
-      </span>
-
-      <button onclick="agregarAlCarrito('Iguazú', 320000)">
-        Agregar al carrito
-      </button>
-
-    </div>
-
-  </div>
-
-  <h2>Productos cargados por el administrador</h2>
-
-  <div
-    id="productosAdmin"
-    class="contenedor-viajes">
-  </div>
 
 </section>
-```
 
   </main>
 
   <script src="script.js"></script>
 
-  <script>
-    mostrarProductosViajes();
-  </script>
+<script>
+    cargarViajes();
+</script>
 
 </body>
 

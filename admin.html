@@ -9,72 +9,46 @@
 
 <body>
 
-    <header class="Encabezado">
+    <h1>Panel del Jefe de Ventas</h1>
 
-        <div class="logo">
-            <img src="ArgenVia.png" alt="Logo de ArgenVia" class="img-logo">
-        </div>
+    <input
+        type="text"
+        id="nombreViaje"
+        placeholder="Nombre del viaje">
 
-        <nav class="Menu">
+    <input
+        type="text"
+        id="descripcionViaje"
+        placeholder="Descripción">
 
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="viajes.html">Viajes</a></li>
-                <li><a href="estadias.html">Estadías</a></li>
-                <li><a href="traslados.html">Traslados</a></li>
-                
-                <li><a href="registro.html"><img src="registro.png" alt="Registro" class="icono-menu"></a>
-                </li>
-                <li>
-        <a href="carrito.html">
-                🛒
-        </a></li>
-                <li id="adminLink" hidden>
-                <a href="admin.html">
-             Panel de Admin
-                </a>
-                </li>
-            
-            </ul>
+    <input
+        type="number"
+        id="precioViaje"
+        placeholder="Precio">
 
-        </nav>
+    <input
+        type="text"
+        id="imagenViaje"
+        placeholder="Imagen (ej: bariloche.jpg)">
 
-    </header>
+    <button onclick="agregarViaje()">
+        Agregar Viaje
+    </button>
 
-    <section>
+    <hr>
 
-        <h1>⚙️ Panel del Jefe de Ventas</h1>
+    <h2>Viajes cargados</h2>
 
-        <input
-            type="text"
-            id="nombreProducto"
-            placeholder="Nombre del producto">
+    <div id="listaProductos"></div>
 
-        <input
-            type="number"
-            id="precioProducto"
-            placeholder="Precio">
-
-        <button onclick="agregarProducto()">
-            Agregar Producto
-        </button>
-
-        <hr>
-
-        <h2>Productos cargados</h2>
-
-        <div id="listaProductos"></div>
-
-        <button onclick="cerrarSesion()">
-            Cerrar Sesión
-        </button>
-
-    </section>
+    <button onclick="cerrarSesion()">
+        Cerrar Sesión
+    </button>
 
     <script src="script.js"></script>
 
     <script>
-        mostrarProductos();
+        mostrarViajes();
     </script>
 
 </body>

@@ -50,44 +50,64 @@ function cerrarLogin() {
     }
 }
 
-function entrar() {
+async function entrar() {
 
-    let usuario =
+    const usuario =
         document.getElementById("usuario").value;
 
-    let password =
+    const password =
         document.getElementById("password").value;
 
-    if (
-        usuario === "admin" &&
-        password === "1234"
-    ) {
+    const respuesta = await fetch(
+        "http://localhost:3000/login",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                usuario,
+                password
+            })
+        }
+    );
 
-        localStorage.setItem(
-            "rol",
-            "admin"
-        );
+    const datos = await respuesta.json();
 
-        alert("Bienvenido Admin");
+    if (!respuesta.ok) {
 
-        window.location.href =
-            "index.html";
-
-    } else {
-
-        alert(
-            "Usuario o contraseña incorrectos"
-        );
+        alert(datos.mensaje);
+        return;
 
     }
+
+    localStorage.setItem(
+        "rol",
+        datos.usuario.rol
+    );
+
+    localStorage.setItem(
+        "usuario",
+        datos.usuario.usuario
+    );
+
+    alert(
+        "Bienvenido " +
+        datos.usuario.usuario
+    );
+
+    window.location.href =
+        "index.html";
 }
 
 function cerrarSesion() {
 
+    localStorage.removeItem("usuario");
     localStorage.removeItem("rol");
 
     window.location.href =
-        "index.html";
+        "registro.html";
+
 }
 
 /* ========================= */
@@ -201,160 +221,6 @@ function vaciarCarrito() {
     mostrarCarrito();
 }
 
-/* ========================= */
-/* PRODUCTOS ADMIN */
-/* ========================= */
-
-function agregarProducto() {
-
-    let nombre =
-        document.getElementById(
-            "nombreProducto"
-        ).value;
-
-    let precio =
-        document.getElementById(
-            "precioProducto"
-        ).value;
-
-    if (
-        nombre === "" ||
-        precio === ""
-    ) {
-
-        alert(
-            "Completa todos los campos"
-        );
-
-        return;
-    }
-
-    let productos =
-        JSON.parse(
-            localStorage.getItem(
-                "productos"
-            )
-        ) || [];
-
-    productos.push({
-        nombre,
-        precio
-    });
-
-    localStorage.setItem(
-        "productos",
-        JSON.stringify(productos)
-    );
-
-    mostrarProductos();
-
-    alert("Producto agregado");
-
-    document.getElementById(
-        "nombreProducto"
-    ).value = "";
-
-    document.getElementById(
-        "precioProducto"
-    ).value = "";
-}
-
-function mostrarProductos() {
-
-    let productos =
-        JSON.parse(
-            localStorage.getItem(
-                "productos"
-            )
-        ) || [];
-
-    let contenedor =
-        document.getElementById(
-            "listaProductos"
-        );
-
-    if (!contenedor) return;
-
-    contenedor.innerHTML = "";
-
-    productos.forEach((p, indice) => {
-
-        contenedor.innerHTML += `
-            <p>
-                ${p.nombre}
-                - $${p.precio}
-
-                <button
-                onclick="eliminarProductoAdmin(${indice})">
-
-                    Eliminar
-
-                </button>
-
-            </p>
-        `;
-    });
-}
-
-function mostrarProductosViajes() {
-
-    let productos =
-        JSON.parse(
-            localStorage.getItem(
-                "productos"
-            )
-        ) || [];
-
-    let contenedor =
-        document.getElementById(
-            "productosAdmin"
-        );
-
-    if (!contenedor) return;
-
-    contenedor.innerHTML = "";
-
-    productos.forEach((p) => {
-
-        contenedor.innerHTML += `
-            <div class="tarjeta-viaje">
-
-                <h3>${p.nombre}</h3>
-
-                <span class="precio">
-                    $${p.precio}
-                </span>
-
-                <button onclick="agregarAlCarrito('${p.nombre}', ${p.precio})">
-                    Agregar al carrito
-                </button>
-
-            </div>
-        `;
-    });
-}
-function eliminarProductoAdmin(indice){
-
-    let productos =
-        JSON.parse(
-            localStorage.getItem("productos")
-        ) || [];
-
-    productos.splice(indice, 1);
-
-    localStorage.setItem(
-        "productos",
-        JSON.stringify(productos)
-    );
-
-    mostrarProductos();
-}
-
-function esAdmin(){
-
-    return localStorage.getItem("rol")
-        === "admin";
-}
 window.addEventListener("DOMContentLoaded", () => {
 
     const adminLink =
@@ -375,3 +241,403 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
 }); 
+async function registrar() {
+
+    const usuario =
+        document.getElementById(
+            "nuevoUsuario"
+        ).value;
+
+    const email =
+        document.getElementById(
+            "nuevoEmail"
+        ).value;
+
+    const password =
+        document.getElementById(
+            "nuevoPassword"
+        ).value;
+
+    if (
+        usuario === "" ||
+        email === "" ||
+        password === ""
+    ) {
+
+        alert(
+            "Completa todos los campos"
+        );
+
+        return;
+    }
+
+    const respuesta = await fetch(
+        "http://localhost:3000/registro",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type":
+                    "application/json"
+            },
+            body: JSON.stringify({
+                usuario,
+                email,
+                password
+            })
+        }
+    );
+
+    const datos =
+        await respuesta.json();
+
+    alert(datos.mensaje);
+
+    if (respuesta.ok) {
+
+        window.location.href =
+            "iniciosesion.html";
+
+    }
+}
+async function mostrarViajes() {
+
+    const respuesta =
+        await fetch(
+            "http://localhost:3000/viajes"
+        );
+
+    const viajes =
+        await respuesta.json();
+
+    const contenedor =
+        document.getElementById(
+            "listaProductos"
+        );
+
+    if (!contenedor) return;
+
+    contenedor.innerHTML = "";
+
+    viajes.forEach((viaje) => {
+
+        contenedor.innerHTML += `
+            <p>
+
+                <b>${viaje.nombre}</b>
+
+                - ${viaje.descripcion}
+
+                - $${viaje.precio}
+
+                <button
+                onclick="eliminarViaje(${viaje.id})">
+
+                    Eliminar
+
+                </button>
+
+            </p>
+        `;
+    });
+
+}
+
+async function agregarViaje() {
+
+    const nombre =
+        document.getElementById(
+            "nombreViaje"
+        ).value;
+
+    const descripcion =
+        document.getElementById(
+            "descripcionViaje"
+        ).value;
+
+    const precio =
+        document.getElementById(
+            "precioViaje"
+        ).value;
+
+    const imagen =
+        document.getElementById(
+            "imagenViaje"
+        ).value;
+
+    const respuesta =
+        await fetch(
+            "http://localhost:3000/viajes",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type":
+                        "application/json"
+                },
+                body: JSON.stringify({
+                    nombre,
+                    descripcion,
+                    precio,
+                    imagen
+                })
+            }
+        );
+
+    const datos =
+        await respuesta.json();
+
+    alert(datos.mensaje);
+
+    mostrarViajes();
+
+}
+
+async function eliminarViaje(id) {
+
+    const respuesta =
+        await fetch(
+            `http://localhost:3000/viajes/${id}`,
+            {
+                method: "DELETE"
+            }
+        );
+
+    const datos =
+        await respuesta.json();
+
+    alert(datos.mensaje);
+
+    mostrarViajes();
+
+}
+async function cargarViajes() {
+
+    const respuesta =
+        await fetch(
+            "http://localhost:3000/viajes"
+        );
+
+    const viajes =
+        await respuesta.json();
+
+    const contenedor =
+        document.getElementById(
+            "productosAdmin"
+        );
+
+    if (!contenedor) return;
+
+    contenedor.innerHTML = "";
+
+    viajes.forEach((viaje) => {
+
+        contenedor.innerHTML += `
+
+            <div class="tarjeta-viaje">
+
+                <img
+                    src="${viaje.imagen}"
+                    alt="${viaje.nombre}">
+
+                <h3>
+                    ${viaje.nombre}
+                </h3>
+
+                <p>
+                    ${viaje.descripcion}
+                </p>
+
+                <span class="precio">
+                    $${viaje.precio}
+                </span>
+
+                <button
+                    onclick="agregarAlCarrito(
+                        '${viaje.nombre}',
+                        ${viaje.precio}
+                    )">
+
+                    Agregar al carrito
+
+                </button>
+
+            </div>
+
+        `;
+
+    });
+
+}
+async function registrar() {
+
+    const usuario =
+        document.getElementById("nuevoUsuario").value;
+
+    const email =
+        document.getElementById("nuevoEmail").value;
+
+    const password =
+        document.getElementById("nuevoPassword").value;
+
+    if (
+        usuario === "" ||
+        email === "" ||
+        password === ""
+    ) {
+
+        alert("Completa todos los campos");
+        return;
+
+    }
+
+    try {
+
+        const respuesta =
+            await fetch(
+                "http://localhost:3000/registro",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+                    body: JSON.stringify({
+                        usuario,
+                        email,
+                        password
+                    })
+                }
+            );
+
+        const datos =
+            await respuesta.json();
+
+        console.log(datos);
+
+        alert(datos.mensaje);
+
+        if (respuesta.ok) {
+
+            window.location.href =
+                "iniciosesion.html";
+
+        }
+
+    } catch (error) {
+
+        console.log(error);
+
+        alert(
+            "No se pudo conectar con el servidor"
+        );
+
+    }
+
+}
+function cargarPerfil() {
+
+    const usuario =
+        localStorage.getItem("usuario");
+
+    const rol =
+        localStorage.getItem("rol");
+
+    const nombre =
+        document.getElementById("nombreUsuario");
+
+    const rolSpan =
+        document.getElementById("rolUsuario");
+
+    if (nombre) {
+
+        nombre.innerText =
+            usuario || "No identificado";
+
+    }
+
+    if (rolSpan) {
+
+        rolSpan.innerText =
+            rol || "cliente";
+
+    }
+
+}
+function cargarPerfil() {
+
+    const usuario =
+        localStorage.getItem("usuario");
+
+    const rol =
+        localStorage.getItem("rol");
+
+    const nombre =
+        document.getElementById("nombreUsuario");
+
+    const rolSpan =
+        document.getElementById("rolUsuario");
+
+    if (nombre) {
+        nombre.innerText =
+            usuario || "No identificado";
+    }
+
+    if (rolSpan) {
+        rolSpan.innerText =
+            rol || "cliente";
+    }
+
+}
+
+function cerrarSesionPerfil() {
+
+    localStorage.removeItem("usuario");
+    localStorage.removeItem("rol");
+
+    window.location.href =
+        "registro.html";
+
+}
+window.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        const adminLink =
+            document.getElementById(
+                "adminLink"
+            );
+
+        if (
+            adminLink &&
+            localStorage.getItem("rol")
+            === "admin"
+        ) {
+
+            adminLink.hidden = false;
+
+        }
+
+        const linkPerfil =
+            document.getElementById(
+                "linkPerfil"
+            );
+
+        if (!linkPerfil) return;
+
+        if (
+            localStorage.getItem(
+                "usuario"
+            )
+        ) {
+
+            linkPerfil.href =
+                "perfil.html";
+
+        } else {
+
+            linkPerfil.href =
+                "registro.html";
+
+        }
+
+    }
+);

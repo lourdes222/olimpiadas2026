@@ -12,6 +12,17 @@
     "vite": "^8.0.12"
   },
   "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "mysql2": "^3.22.5",
     "react-router-dom": "^7.15.1"
   }
+}
+POST http://localhost:3000/viajes
+
+{
+  "nombre": "Mendoza",
+  "descripcion": "4 dias y 3 noches",
+  "precio": 280000,
+  "imagen": "mendoza.jpg"
 }

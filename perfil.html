@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Mi Perfil - ArgenVia</title>
+
+    <link rel="icon"
+          type="image/x-icon"
+          href="ArgenVia.png">
+
+    <link rel="stylesheet"
+          href="estilos.css">
+
+</head>
+
+<body>
+
+    <header class="Encabezado">
+
+        <div class="logo">
+
+            <img src="ArgenVia.png"
+                 alt="Logo de ArgenVia"
+                 class="img-logo">
+
+        </div>
+
+        <nav class="Menu">
+
+            <ul>
+
+                <li>
+                    <a href="index.html">
+                        Inicio
+                    </a>
+                </li>
+
+                <li>
+                    <a href="viajes.html">
+                        Viajes
+                    </a>
+                </li>
+
+                <li>
+                    <a href="estadias.html">
+                        Estadías
+                    </a>
+                </li>
+
+                <li>
+                    <a href="traslados.html">
+                        Traslados
+                    </a>
+                </li>
+
+                <li>
+                    <a href="carrito.html">
+                        🛒
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        <section class="login-contenido">
+
+            <h1>
+                👤 Mi Perfil
+            </h1>
+
+            <p>
+
+                <strong>
+                    Usuario:
+                </strong>
+
+                <span id="nombreUsuario">
+                </span>
+
+            </p>
+
+            <p>
+
+                <strong>
+                    Rol:
+                </strong>
+
+                <span id="rolUsuario">
+                </span>
+
+            </p>
+
+            <button onclick="cerrarSesionPerfil()">
+
+                Cerrar Sesión
+
+            </button>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+    <script>
+
+        cargarPerfil();
+
+    </script>
+
+</body>
+
+</html>
