@@ -18,11 +18,3 @@
     "react-router-dom": "^7.15.1"
   }
 }
-POST http://localhost:3000/viajes
-
-{
-  "nombre": "Mendoza",
-  "descripcion": "4 dias y 3 noches",
-  "precio": 280000,
-  "imagen": "mendoza.jpg"
-}
